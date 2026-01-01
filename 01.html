@@ -41,11 +41,23 @@
             let self = this;
             console.log(this);
             this.changeBackground(backgrounds[currentBack]);
+
+            let sprite = this.createSprite('dude', 100, 100);
+            console.log(sprite.x, sprite.y, sprite.direction, sprite.size);
+            sprite.x = 400;
+            sprite.direction = 45;
+            sprite.size = 2;
+            console.log(sprite.x, sprite.y, sprite.direction, sprite.size);
+
+
             //            this.test();
             cursors = game.createdGame.input.keyboard.createCursorKeys();
 
             let keyObject = game.createdGame.input.keyboard.addKey("W"); // Get key object
             keyObject.on("up", function (event) {
+                sprite.x += 10;
+                sprite.y += 10;
+                console.log(sprite.x, sprite.y, sprite.direction, sprite.size);
                 currentBack++;
                 if (currentBack >= backgrounds.length) {
                     currentBack = -1;
