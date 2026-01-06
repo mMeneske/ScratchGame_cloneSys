@@ -43,27 +43,29 @@
             this.changeBackground(backgrounds[currentBack]);
 
             let sprite = this.createSprite('dude', 100, 100);
-            console.log(sprite.x, sprite.y, sprite.direction, sprite.size);
             sprite.x = 400;
             sprite.direction = 45;
             sprite.size = 2;
-            console.log(sprite.x, sprite.y, sprite.direction, sprite.size);
 
+            sprite.visible = false;
+            sprite.tag = 'player';
 
             //            this.test();
             cursors = game.createdGame.input.keyboard.createCursorKeys();
 
             let keyObject = game.createdGame.input.keyboard.addKey("W"); // Get key object
             keyObject.on("up", function (event) {
-                sprite.x += 10;
-                sprite.y += 10;
-                console.log(sprite.x, sprite.y, sprite.direction, sprite.size);
                 currentBack++;
                 if (currentBack >= backgrounds.length) {
                     currentBack = -1;
                     game.setBackgroundColor(0x00FFFF);
                     return;
                 }
+                sprite.visible = true;
+                sprite.moveForward(10);
+                sprite.nextCostume();
+                console.log(sprite.costume);
+                console.log(sprite.costumesCount);
                 game.changeBackground(backgrounds[currentBack]);
             });
         }
