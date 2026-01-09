@@ -36,6 +36,7 @@
         let cursors;
         let currentBack = 0;
         let backgrounds = ['sea', 'space', 'sky'];
+        let sprite2;
 
         function create() {
             let self = this;
@@ -46,6 +47,10 @@
             sprite.x = 400;
             sprite.direction = 45;
             sprite.size = 2;
+
+            sprite2 = this.createSprite('dude', 200, 100);
+            sprite2.direction = 45;
+            sprite2.size = 2;
 
             sprite.visible = false;
             sprite.tag = 'player';
@@ -76,6 +81,10 @@
             if (cursors.left.isDown) {
                 console.log('left');
             }
+            sprite2.x += 2;
+            sprite2.y += 100;
+            sprite2.y -= 100;
+            sprite2.x -= 1;
         }
 
         //createSprite()
