@@ -78,6 +78,8 @@ function create() {
     player.visible = true;
     // скрыть спрайт
     player.visible = false;
+    // меняет видимость спрайта
+    player.changeVisibility();
 
     // переменная costume - номер текущего костюма (фрейма), нумерация начинается с 0
     // изменение номера костюма (фрейма)
@@ -88,5 +90,7 @@ function create() {
     console.log(player.costumesCount);
     // следующий костюм
     player.nextCostume();
+    // переключает костюм на заданное количество позиций (по кругу)
+    player.changeCostumeBy(value);
 
 
