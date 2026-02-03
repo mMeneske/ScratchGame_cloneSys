@@ -22,6 +22,8 @@
         game.create = create;
         game.update = update;
 
+        let cloneTest;
+
         function preload() {
             this.loadImage('sky', 'assets/sky.png');
             this.loadImage('sea', 'assets/sea.jpg');
@@ -36,12 +38,32 @@
         let cursors;
 
         function create() {
-            let cloneTest = initClones(100,100,'dude');
+            cloneTest = initClones(100,100,'dude');
             game.changeBackground('sky');
         }
 
         function update() {
 
+            if(game.isKeyDown('LEFT')){
+                cloneTest.targetAll(moveL());
+            }
+
+            if(game.isKeyDown('RIGHT')){
+                cloneTest.targetAll(moveR());
+            }
+
+            if(game.isKeyDown('SPACE')){
+                cloneTest.createClone(1,0);
+                console.log(cloneTest.clone,cloneTest.clone[0].key);
+            }
+        }
+
+        function moveR(){
+            ++cloneTest.clone[i].x;
+        }
+
+        function moveL(){
+            --cloneTest.clone[i].x;
         }
 
 
