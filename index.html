@@ -22,9 +22,6 @@
         game.create = create;
         game.update = update;
 
-        let clone = new ScratchClone();
-        clone.newClone
-
         function preload() {
             this.loadImage('sky', 'assets/sky.png');
             this.loadImage('sea', 'assets/sea.jpg');
@@ -39,13 +36,12 @@
         let cursors;
 
         function create() {
-            let player = this.createSprite(100, 100, 'dude');
-            let playerClones = []
+            let cloneTest = initClones(100,100,'dude');
+            game.changeBackground('sky');
         }
 
         function update() {
-            player.newClone(playerClones);
-            ++player.x;
+
         }
 
 
