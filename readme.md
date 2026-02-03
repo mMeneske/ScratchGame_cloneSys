@@ -30,6 +30,12 @@ https://github.com/Mperv/scratch-game
     testclones.length()
     //Удаляет все клоны с идексом от from до to.
     deleteclones(from, to);
+```
+## Планы на будуйщее
 
+```javascript
+ //Возможна новая функция
+ testclones.runAll(func);
+ //Которая будет для каждого клона запускать функцию func.
 ```
 
