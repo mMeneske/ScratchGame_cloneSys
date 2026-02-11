@@ -38,23 +38,34 @@
         let cursors;
 
         function create() {
-            cloneTest = initClones('dude', 100, 100);
+            planeTest = initPlane('dude', 100, 100, 32, 48, 10, 10);
             game.changeBackground('sky');
+            console.log(planeTest.amount());
+
         }
 
+        tick = 0;
+        hide = 0;
+        lines = 5;
+
         function update() {
+            ++tick;
 
-            if(game.isKeyDown('LEFT')){
-                cloneTest.targetAll(moveL());
-            }
-
-            if(game.isKeyDown('RIGHT')){
-                cloneTest.targetAll(moveR());
+            if(tick % 25 == 0){
+                ++hide;
+                for(let x = 0; x < planeTest.sizeX; ++x){
+                    for(let y = 0; y < planeTest.sizeY; ++y){
+                        if((x + y) % lines == hide % lines){
+                            planeTest.plane[x][y].visible = false;
+                        } else {
+                            planeTest.plane[x][y].visible = true;
+                        }
+                    }  
+                }
             }
 
             if(game.isKeyDown('SPACE')){
-                cloneTest.createClone(1,0);
-                console.log(cloneTest.clone,cloneTest.clone[0].key);
+                
             }
         }
 
