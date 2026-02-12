@@ -38,35 +38,54 @@
         let cursors;
 
         function create() {
-            planeTest = initPlane('dude', 100, 100, 32, 48, 10, 10);
+            planeTest = initPlane('dude', 32, 48, 32, 48, 15, 10);
+            cloneTest = initClones('dude', 100, 100);
+            cloneTest.createClones(2,0);
+            cloneTest.permaHide(0,1);
             game.changeBackground('sky');
-            console.log(planeTest.amount());
-
+            planeTest.runAll(hideing);
+            cloneTest.runAll(moving);
         }
 
         tick = 0;
         hide = 0;
         lines = 5;
 
-        function update() {
+        function update() {            
             ++tick;
 
             if(tick % 25 == 0){
                 ++hide;
-                for(let x = 0; x < planeTest.sizeX; ++x){
-                    for(let y = 0; y < planeTest.sizeY; ++y){
-                        if((x + y) % lines == hide % lines){
-                            planeTest.plane[x][y].visible = false;
-                        } else {
-                            planeTest.plane[x][y].visible = true;
-                        }
-                    }  
-                }
+                //planeTest.runAll(move);
             }
 
             if(game.isKeyDown('SPACE')){
-                
+                planeTest.runAll(updateCostume);
             }
+
+            cloneTest.allowPermaHide();
+        }
+        
+        function moving(i){
+            cloneTest.clones[i].x = 100 + i * 48;
+        }
+
+        function move(x, y){
+            if((x + y) % lines == hide % lines){
+                planeTest.plane[x][y].visible = false;
+            } else {
+                planeTest.plane[x][y].visible = true;
+            }
+        }
+
+        function updateCostume(x, y){
+            if(planeTest.plane[x][y].visible){
+                planeTest.plane[x][y].nextCostume();
+            }
+        }
+
+        function hideing(x, y){
+            planeTest.plane[x][y].visible = false;
         }
 
     </script>
