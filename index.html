@@ -22,8 +22,6 @@
         game.create = create;
         game.update = update;
 
-        let cloneTest;
-
         function preload() {
             this.loadImage('sky', 'assets/sky.png');
             this.loadImage('sea', 'assets/sea.jpg');
@@ -39,35 +37,25 @@
 
         function create() {
             planeTest = initPlane('dude', 32, 48, 32, 48, 15, 10);
-            cloneTest = initClones('dude', 100, 100);
-            cloneTest.createClones(2,0);
-            cloneTest.permaHide(0,1);
             game.changeBackground('sky');
-            planeTest.runAll(hideing);
-            cloneTest.runAll(moving);
+            planeTest.deletePlanePart(1, 1, 3, 3);   
         }
 
         tick = 0;
         hide = 0;
         lines = 5;
 
-        function update() {            
+        function update() {       
             ++tick;
 
             if(tick % 25 == 0){
                 ++hide;
-                //planeTest.runAll(move);
+                planeTest.runAll(move);
             }
 
             if(game.isKeyDown('SPACE')){
                 planeTest.runAll(updateCostume);
             }
-
-            cloneTest.allowPermaHide();
-        }
-        
-        function moving(i){
-            cloneTest.clones[i].x = 100 + i * 48;
         }
 
         function move(x, y){
