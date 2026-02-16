@@ -1,5 +1,5 @@
-# cloneSys v1.26.7a for ScratchGame v0.26.6b
-## An expantion of ScratchGame
+# cloneSys v1.26.8a for ScratchGame v1.26.8a
+## An expantion for ScratchGame
 
 ## Prior knowledge
 
@@ -30,13 +30,13 @@ npx http-server . -p 8080
 
 ## Connecting Libaries
 
-First you will need to connnect Phaser, ScratchGame and cloneSys.
+First you will need to connnect Phaser, ScratchGame and CloneSys.
 
 ```html
 <head>
     <script src="lib/phaser.min.js"></script>
-    <script src="lib/scratch_game.js"></script>
-    <script src="lib/cloneSys.js"></script>
+    <script src="lib/ScratchGame.js"></script>
+    <script src="lib/CloneSys.js"></script>
 </head>
 ```
 
