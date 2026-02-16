@@ -1,4 +1,4 @@
-# cloneSys v1.26.8a for ScratchGame v1.26.8a
+# CloneSys v1.26.8a for ScratchGame v1.26.8a
 ## An expantion for ScratchGame
 
 ## Prior knowledge
