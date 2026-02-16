@@ -14,6 +14,20 @@ https://phaser.io/download/phaser3
 You can download ScratchGame from:
 https://github.com/Mperv/scratch-game
 
+## Starting Server
+
+To run any game you need to run it on a server.
+
+For Python you can use:
+```bash
+python -m http.server 8080
+```
+
+For NodeJS you can use:
+```bash
+npx http-server . -p 8080
+```
+
 ## Connecting Libaries
 
 First you will need to connnect Phaser, ScratchGame and cloneSys.
