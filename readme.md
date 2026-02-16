@@ -132,3 +132,7 @@ function update() {
     // testPlane.deletePlanePart(), but it exist if anybody needs it.
 }
 ```
+
+## Demo Project 
+
+Right now there is not a proper demo project to showcase but if you want you can go to the file called 01.html in the main branch, while an empty file ready for code is index.html.
