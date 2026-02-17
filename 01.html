@@ -24,19 +24,13 @@
 
         function preload() {
             this.loadImage('sky', 'assets/sky.png');
-            this.loadImage('sea', 'assets/sea.jpg');
-            this.loadImage('space', 'assets/space.jpg');
-
-            this.loadImage('ground', 'assets/platform.png');
-            this.loadImage('star', 'assets/star.png');
-            this.loadImage('bomb', 'assets/bomb.png');
             this.loadSpritesheet('dude', 'assets/dude.png', 32, 48);
         }
 
         function create() {
             planeTest = initPlane('dude', 32, 48, 32, 48, 15, 10);
             game.changeBackground('sky');
-            planeTest.deletePlanePart(1, 1, 3, 3);   
+            planeTest.deletePlanePart(1, 1, 3, 3); 
         }
 
         tick = 0;
@@ -69,11 +63,6 @@
                 planeTest.plane[x][y].nextCostume();
             }
         }
-
-        function hideing(x, y){
-            planeTest.plane[x][y].visible = false;
-        }
-
     </script>
 
 </body>
