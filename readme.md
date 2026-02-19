@@ -1,4 +1,4 @@
-# CloneSys v1.26.8a for ScratchGame v1.26.8a
+# CloneSys v1.26.8b for ScratchGame v1.26.8a
 ## An expantion for ScratchGame
 
 ## Prior knowledge
@@ -8,11 +8,21 @@ https://github.com/Mperv/scratch-game/blob/main/readme.en.md
 
 ## Downloading Libaries
 
+### Required libraries
+
 You can download Phaser 3 from:
 https://phaser.io/download/phaser3
 
 You can download ScratchGame from:
 https://github.com/Mperv/scratch-game
+
+### Recomended libaries
+
+VersionSys: automatically loads all libaries that it supports and lets them interact with eachother:
+https://github.com/mMeneske/ScratchGame_VersionSys
+
+DebugSys: makes it possible to hide all warnings:
+https://github.com/mMeneske/ScratchGame_DebugSys
 
 ## Starting Server
 
@@ -40,16 +50,27 @@ First you will need to connnect Phaser, ScratchGame and CloneSys.
 </head>
 ```
 
+If you are using VersionSys this is will look like this:
+And CloneSys will be automatically loaded by VersionSys
+
+```html
+<head>
+    <script src="lib/phaser.min.js"></script>
+    <script src="lib/ScratchGame.js"></script>
+    <script src="lib/VersionSys.js"></script>
+</head>
+```
+
 ## Clones
 
 Clones are arrys of sprites that you can easily interact with.
 
 ```js
 function create() {
-    // initClones(key, x ,y) works just as game.createSprite(key, x, y) with the only
+    // initClones(x ,y, key) works just as game.createSprite(x, y, key) with the only
     // exception that it allows you to create extra sprites that are controled as one 
     // entity.
-    testClones = initClones('dude', 100, 100);
+    testClones = initClones(100, 100, 'dude');
 }
 
 function update() {
@@ -94,12 +115,12 @@ Planes are 2 diemetional arrays of sprites that you can easily interact with.
 
 ```js
 function create() {
-    // initPlane(key, coardsX, coardsY, offsetX, offsetY, lengthX, lengthY) starts with
-    // the usual "key", but then it continues to "coardsX" and "Y" those are just the coards
-    // for the first sprite in the plane. Then we have "offsetX" and "Y" witch are the offsets
-    // for the next sprites. And lastly "lengthX" and "Y" is the sixe of the plane in this 
-    // example it is 15 * 10.
-    testPlane = initPlane('dude', 32, 48, 32, 48, 15, 10);
+    // initPlane(coardsX, coardsY, offsetX, offsetY, lengthX, lengthY, key) starts with
+    // "coardsX" and "Y" those are just the coards for the first sprite in the plane.
+    // Then we have "offsetX" and "Y" witch are the offsets for the next sprites. 
+    // And "lengthX" and "Y" is the sixe of the plane in this example it is 15 * 10. 
+    // And lastly we have the usual key.
+    testPlane = initPlane(32, 48, 32, 48, 15, 10, 'dude');
     // An important thing is that you can't add more sprites later on 
     // (maybee it will be possible in a later relase).
 }
@@ -130,6 +151,17 @@ function update() {
     testClones.permaHide(1, 1, 3, 3);
     // We have not found any reason to use testplane.permaHide(), instead of
     // testPlane.deletePlanePart(), but it exist if anybody needs it.
+}
+```
+
+## Version
+
+```js
+function update(){
+    // cloneSys.version will return the version of CloneSys.
+    console.log(cloneSys.version);
+    // clonenSys.versionId will return the id for the version of CloneSys.
+    console.log(cloneSys.versionId);
 }
 ```
 
